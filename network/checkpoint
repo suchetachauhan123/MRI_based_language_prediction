@@ -1,0 +1,2 @@
+model_checkpoint_path: "/home/sucheta/onlyTrain/1network/convNet.ckpt"
+all_model_checkpoint_paths: "/home/sucheta/onlyTrain/1network/convNet.ckpt"
