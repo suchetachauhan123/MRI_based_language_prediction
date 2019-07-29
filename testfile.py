@@ -92,7 +92,7 @@ def main(argv=None):  # pylint: disable=unused-argument
   fc2_weights = tf.Variable(tf.truncated_normal([500, n_classes], stddev=0.01, seed=SEED))
   fc2_biases = tf.Variable(tf.constant(0.1, shape=[n_classes]))
 
-  def model(data, train=False):
+  def model(data):
     """The Model definition."""
     print ('conv-1 input')
     print (data)
@@ -115,7 +115,7 @@ def main(argv=None):  # pylint: disable=unused-argument
     hidden = tf.nn.relu(tf.matmul(reshape, fc1_weights) + fc1_biases)
     return tf.nn.sigmoid(tf.matmul(hidden, fc2_weights) + fc2_biases), hidden
 
-  logits, fp1 = model(train_data_node, True)
+  logits, fp1 = model(train_data_node)
 
   loss = tf.reduce_mean(tf.pow(train_labels_node - logits, 2))
   
